@@ -1,13 +1,16 @@
 fun main(args: Array<String>) {
     print("Make your choice; Rock, Paper or Scissors? ")
     val user = readLine()
-    doit("$user")
-}
+    if(
+        user != "Rock" || user != "Paper" || user != "Scissors") {
+        doit("$user")}
+    }
+
 
 fun doit(user:String) {
 
-    val options = arrayOf("Rock","Paper","Scissors")
     val pos = (0..2).random()
+    val options = arrayOf("Rock","Paper","Scissors")
     val res = options.elementAt(pos)
     val out = "You chose $user and the computer $res so"
 
