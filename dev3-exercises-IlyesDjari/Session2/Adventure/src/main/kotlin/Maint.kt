@@ -36,7 +36,7 @@ fun challengeTwo() {
     }
 
     if (acceptedAnswers.contains(diceResult)) {
-        winTwo();
+        winTwo()
     } else {
         lostTwo()
     }
@@ -52,7 +52,30 @@ fun lostTwo() {
 }
 
 fun challengeThree() {
-    println("In the darkness of the alley you're exploring you hear a strange noise. You have a list of items in" +
-            "your backpack which one will you use? Sword, Arch or Book? ")
+    println(
+        "In the darkness of the alley you're exploring you hear a strange noise. You have a list of items in" +
+                "your backpack which one will you use? Sword, Arch or Book? "
+    )
 
+    val userAnswer = readLine()
+
+    if (userAnswer == "Sword") {
+        println(
+            "You pulled out a sword to defend yourself from the incoming danger. While walking forward an old trap was " +
+                    "activated and released toxic gas. You then slowly suffocate behind the deadly smoke. "
+        )
+    } else if (userAnswer == "Arch") {
+        println(
+            "You just armed your arch and lit up an arrow to attack the close danger. You shoot an arrow in an attempt" +
+                    "to see clearly what's going on. But then you see that the arrow activated a poisonous trap. You" +
+                    "just had enough time to go back outside"
+        )
+        challengeTwo()
+    } else if (userAnswer == "Book") {
+        println(
+            "The end seems near and you just try to don't think about it whilst reading the book grandma gave you" +
+                    "before starting this adventure. Incredibly enough it's about this pyramid. It describes the poisonous" +
+                    "alley you're in and how to survive it. Good job you can continue into the pyramid."
+        )
+    }
 }
