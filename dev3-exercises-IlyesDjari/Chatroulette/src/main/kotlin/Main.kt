@@ -1,8 +1,10 @@
 fun main(){
-    val persons = arrayOf("Ilyes","Benoit")
+    val persons = arrayOf(Stud("Ilyes"), OtherStud("Benoit"))
     val person = persons.random()
-    println(person)
+    persons.Chat()
+    println(persons)
 }
 
 fun introduce() {
+
 }
