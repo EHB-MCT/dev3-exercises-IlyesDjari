@@ -3,7 +3,3 @@ fun main(){
     val person = persons.random()
     println(person)
 }
-
-fun introduce() {
-
-}
