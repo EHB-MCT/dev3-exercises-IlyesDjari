@@ -1,8 +1,8 @@
-class Chatbot (override val name:String): Person(name), Talk{
-    override fun chat(){
-        shit()
+class Chatbot(val name: String): Talk{
+    override fun introduce(){
+        println("Hello! I'm $name")
     }
-    fun shit(){
-        println("Life is life, lalaaaalaalalaaa")
+    override fun chat(){
+        println("Life is life, LAAAALAAAALAALALAAA")
     }
 }
