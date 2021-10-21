@@ -1,4 +1,4 @@
-class OtherStud (override val name:String): Person(name), Talk{
+class Student (override val name:String): Person(name), Talk{
     override fun chat(){
         day()
     }
