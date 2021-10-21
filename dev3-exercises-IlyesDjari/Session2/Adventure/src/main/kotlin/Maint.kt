@@ -3,7 +3,11 @@ fun main() {
 }
 
 fun challengeOne() {
-    println("Challenge 1")
+    println("Hey sir..." +
+            "" +
+            "You just woke up?" +
+            "" +
+            "Our ship is heading to Egypt, everything is going fine at the moment.")
     println("To which of the 12 of the most famous pyramids in Egypt do you want to head?")
     val answers = setOf<String>("Lahun","Userkaf","Hawara", "Teti", "Unas", "Meidum", "Menkaure", "Djoser", "Bent", "Red", "Khafre","Khufu")
     val userAnswer = readLine()
@@ -31,8 +35,7 @@ fun challengeTwo() {
     var acceptedAnswers = setOf<Int>()
     if (userAnswer == "Left") {
         acceptedAnswers = setOf(1, 2, 3)
-    } else {
-        acceptedAnswers = setOf(4, 5, 6)
+    } else { acceptedAnswers = setOf(4, 5, 6)
     }
 
     if (acceptedAnswers.contains(diceResult)) {
