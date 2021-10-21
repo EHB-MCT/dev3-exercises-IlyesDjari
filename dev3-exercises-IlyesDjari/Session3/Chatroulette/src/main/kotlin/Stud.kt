@@ -3,6 +3,6 @@ class Stud (override val name:String): Person(name), Talk{
         web()
     }
     fun web(){
-        println("We finally learned about node today !")
+        println("We finally learned about NodeJS today !")
     }
 }

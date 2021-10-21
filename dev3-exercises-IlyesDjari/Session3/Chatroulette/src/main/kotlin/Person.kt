@@ -1,5 +1,5 @@
 open class Person(open val name: String) {
-    fun introduce() {
+    fun chat() {
         println("Hello! my name is $name")
     }
 }
