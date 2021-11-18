@@ -1,0 +1,41 @@
+SELECT * FROM products WHERE productCode = 'S24_3856'
+SELECT AVG(buyPrice) FROM products
+SELECT * FROM products WHERE productName LIKE '%Ford%'
+SELECT * FROM products ORDER BY buyPrice DESC LIMIT 1
+SELECT COUNT(productLine) FROM products WHERE productLine = 'Ships'
+
+
+
+SELECT count(*) FROM orders WHERE customerNumber = '328' 
+
+
+SELECT COUNT(*) FROM orders
+LEFT JOIN customers ON customers.customerNumber = orders.customerNumber
+WHERE customers.contactFirstName = 'Julie' AND customers.contactLastName='Young'
+
+
+SELECT count(*) FROM customers WHERE creditLimit = '0' AND country = ‘USA’
+
+
+SELECT customers.customerName, AVG(amount) AS averagePayment FROM payments
+INNER JOIN customers ON customers.customerNumber = payments.customerNumber
+GROUP BY customers.customerNumber
+ORDER BY averagePayment DESC
+LIMIT 1
+
+
+
+SELECT YEAR (payments.paymentDate) AS yearPayment, SUM(payments.amount) AS total FROM payments
+INNER JOIN customers on customers.customerNumber = payments.customerNumber
+WHERE customers.contactFirstName = 'William' AND customers.contactLastName = 'Brown'
+GROUP BY year_of_payment
+
+
+SELECT customers.customerName, employees.firstName AS representative_firstName, employees.lastName AS representative_lastName FROM customers
+INNER JOIN employees on employees.employeeNumber = customers.salesRepEmployeeNumber
+
+
+SELECT customers.customerName, offices.officeCode, offices.city, offices.addressLine1 FROM customers
+left JOIN employees on employees.employeeNumber = customers.salesRepEmployeeNumber
+left JOIN offices on offices.officeCode = employees.officeCode
+WHERE customerName = 'The Sharp Gifts Warehouse'
