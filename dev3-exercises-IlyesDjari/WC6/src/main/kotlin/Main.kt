@@ -19,8 +19,11 @@ fun main() {
                 credentials.user,
         connectionProps)
 
-    //val statement = connection.prepareStatement()
-    //val result = statement.executeQuery()
+    val search = readLine();
+
+    val statement = connection.prepareStatement("SELECT * FROM trains")
+    println(statement)
+    val result = statement.executeQuery()
 
 
 }
