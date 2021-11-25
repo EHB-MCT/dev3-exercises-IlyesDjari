@@ -19,23 +19,27 @@ fun main() {
                 credentials.user,
         connectionProps)
 
-    val search = "Desiro"
-    val statement = connection.prepareStatement("SELECT * FROM trains WHERE type LIKE '%$search%'")
+    println("To which city do you want to go? 1 (Halle) OR 2 (Elsene)")
+    val search = readLine()
+    val statement = connection.prepareStatement(
+        "SELECT * FROM rides LEFT JOIN trains ON rides.train_id = trains.id WHERE destination_city_id = ? ORDER BY departure_time ASC LIMIT 3")
+
 
     statement.setString(1, search)
+    println("These are the next 3 options I have for you:")
+
     val result = statement.executeQuery()
+
     while(result.next()) {
-        println(result)
+        println("This train is leaving at")
+        println(result.getString("departure_time"))
+        println("and he will depart from platform")
+        println(result.getString("platform"))
     }
 
 
 
 
 
-
-
-    //while(result.next()) {
-    //    println(result.getString("capacity"))
-    //}
 
 }
