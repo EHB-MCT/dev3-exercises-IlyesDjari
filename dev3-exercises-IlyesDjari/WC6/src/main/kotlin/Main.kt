@@ -19,11 +19,23 @@ fun main() {
                 credentials.user,
         connectionProps)
 
-    val search = readLine();
+    val search = "Desiro"
+    val statement = connection.prepareStatement("SELECT * FROM trains WHERE type LIKE '%$search%'")
 
-    val statement = connection.prepareStatement("SELECT * FROM trains")
-    println(statement)
+    statement.setString(1, search)
     val result = statement.executeQuery()
+    while(result.next()) {
+        println(result)
+    }
 
+
+
+
+
+
+
+    //while(result.next()) {
+    //    println(result.getString("capacity"))
+    //}
 
 }
