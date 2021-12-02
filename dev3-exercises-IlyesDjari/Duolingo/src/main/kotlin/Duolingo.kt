@@ -12,7 +12,16 @@ class Duolingo(
         Word("Ecrire","Schrijven","French"),
         Word("Manger","Eten","French"),
         Word("Appeller","Bellen","French"),
-        Word("Ecouter","Spelen","French"))
+        Word("Ecouter","Luisteren","French"),
+        Word("Code","Coderen","English"),
+        Word("Sleep","Slapen","English"),
+        Word("Watch","Kijken","English"),
+        Word("Walk","Stappen","English"),
+        Word("Charge","Opladen","English"),
+        Word("Write","Schrijven","English"),
+        Word("Eat","Eten","English"),
+        Word("Call","Bellen","English"),
+        Word("Liste,","Luisteren","English"))
 
     fun play() {
 
@@ -55,6 +64,4 @@ class Duolingo(
         println("You're done practising for today :)")
       }
     }
-// IntellIJ gave me this option to solve a problem
-private fun <E> List<E>.remove(selectedWord: E) {
-}
+
