@@ -3,7 +3,7 @@ class Duolingo(
     private val language: String) {
 
     // Making a mutable ListOf -> so order is mutable and can be changed
-    private val words = mutableListOf<Word>(Word("Play","Jouer","Spelen"),
+    private val words = mutableListOf<Word>(Word("Jouer","Spelen","French"),
         Word("Coder","Coderen","French"),
         Word("Dormir","Slapen","French"),
         Word("Regarder","Kijken","French"),
@@ -13,6 +13,7 @@ class Duolingo(
         Word("Manger","Eten","French"),
         Word("Appeller","Bellen","French"),
         Word("Ecouter","Luisteren","French"),
+        Word("Play","Spelen","English"),
         Word("Code","Coderen","English"),
         Word("Sleep","Slapen","English"),
         Word("Watch","Kijken","English"),
