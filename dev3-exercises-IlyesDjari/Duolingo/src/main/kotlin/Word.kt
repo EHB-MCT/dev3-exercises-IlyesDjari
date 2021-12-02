@@ -1,5 +1,6 @@
-class Word {
-    val original = String
-    val translated = String
-    val language =  String
+class Word(
+    val original: String,
+    val translation: String,
+    val language: String
+) {
 }
