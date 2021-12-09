@@ -1,7 +1,7 @@
 open class Word(
     open val original: String,
     open val translation: String,
-    open var difficulty: Int = 1,
+    open var difficulty: Int,
     val language: String) {
 
 }

@@ -1,6 +1,6 @@
 class Duolingo(private val size: Int = 5, val language: String="eng") {
 
-    private val words = setOf<Word>(Word("Jouer","Spelen", 3,"French"),
+    private val words = setOf<Word>(Word("Jouer","Spelen", 2,"French"),
         Word("Coder","Coderen", 1,"French"),
         Word("Dormir","Slapen", 2,"French"),
         Word("Regarder","Kijken", 2,"French"),
@@ -26,21 +26,33 @@ class Duolingo(private val size: Int = 5, val language: String="eng") {
 
         while (randomWords.isNotEmpty())  {
             val selectedWord = randomWords.random()
+
+            if (answer == "Hard") {
+                selectedWord.difficulty = 2
+            } else {
+                selectedWord.difficulty = 1
+            }
+
             println("The selected difficulty is " + selectedWord.difficulty)
             println("")
             println("Could you translate the following word: " + selectedWord.original)
-            println("")x
+            println("")
             val answer = readLine()
 
             if(answer == selectedWord.translation)  {
                 randomWords.remove(selectedWord)
                 if (selectedWord.difficulty > 0) {
-                    selectedWord.difficulty--
+                    selectedWord.difficulty = 2
                 } else {
                     throw Exception("The difficulty is too low has to be 1 or 2")
                 }
+
+
             }  else if (answer != selectedWord.translation) {
                 println("The correct answer was ${selectedWord.translation}")
+                println("")
+                selectedWord.difficulty = 1
+                
             }
             println("Words left to translate: ${randomWords.count()}")
         }

@@ -4,7 +4,12 @@ fun main()  {
  if(answer != "Easy" && answer != "Hard")  {
   throw Exception("Please provide a valid level. Easy or Hard")
  } else  {
+
+  if (answer == "Hard") {
+
+  }
   val duolingo = Duolingo(3,"fr")
+
   duolingo.play(answer)
  }
 }
