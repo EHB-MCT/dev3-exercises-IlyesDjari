@@ -1,5 +1,7 @@
-class Word(
-    val original: String,
-    val translation: String,
-    val language: String
-)
+open class Word(
+    open val original: String,
+    open val translation: String,
+    open var difficulty: Int = 1,
+    val language: String) {
+
+}

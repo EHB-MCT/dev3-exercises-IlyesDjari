@@ -1,9 +1,10 @@
-fun main(){
- println("How much words do you want to translate?")
- val number = readLine()!!
- println("Enter one of the available languages:")
- println("French & English")
- val language = readLine()!!
- val duolingo = Duolingo(number ,language)
- duolingo.play()
+fun main()  {
+ println("Which level of difficulty would you want to try? Easy/Hard ")
+ val answer = readLine().toString()
+ if(answer != "Easy" && answer != "Hard")  {
+  throw Exception("Please provide a valid level. Easy or Hard")
+ } else  {
+  val duolingo = Duolingo(3,"fr")
+  duolingo.play(answer)
+ }
 }

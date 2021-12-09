@@ -1,68 +1,48 @@
-class Duolingo(
-    private val number: String,
-    private val language: String) {
+class Duolingo(private val size: Int = 5, val language: String="eng") {
 
-    // Making a mutable ListOf -> so order is mutable and can be changed
-    private val words = mutableListOf<Word>(Word("Jouer","Spelen","French"),
-        Word("Coder","Coderen","French"),
-        Word("Dormir","Slapen","French"),
-        Word("Regarder","Kijken","French"),
-        Word("Marcher","Stappen","French"),
-        Word("Charger","Opladen","French"),
-        Word("Ecrire","Schrijven","French"),
-        Word("Manger","Eten","French"),
-        Word("Appeller","Bellen","French"),
-        Word("Ecouter","Luisteren","French"),
-        Word("Play","Spelen","English"),
-        Word("Code","Coderen","English"),
-        Word("Sleep","Slapen","English"),
-        Word("Watch","Kijken","English"),
-        Word("Walk","Stappen","English"),
-        Word("Charge","Opladen","English"),
-        Word("Write","Schrijven","English"),
-        Word("Eat","Eten","English"),
-        Word("Call","Bellen","English"),
-        Word("Liste,","Luisteren","English"))
+    private val words = setOf<Word>(Word("Jouer","Spelen", 3,"French"),
+        Word("Coder","Coderen", 1,"French"),
+        Word("Dormir","Slapen", 2,"French"),
+        Word("Regarder","Kijken", 2,"French"),
+        Word("Marcher","Stappen", 1,"French"),
+        Word("Charger","Opladen", 1,"French"),
+        Word("Ecrire","Schrijven", 1,"French"),
+        Word("Manger","Eten", 2,"French"),
+        Word("Appeller","Bellen", 1,"French"),
+        Word("Ecouter","Luisteren", 1,"French"),
+        Word("Play","Spelen", 2,"English"),
+        Word("Code","Coderen", 1,"English"),
+        Word("Sleep","Slapen", 2,"English"),
+        Word("Watch","Kijken", 1,"English"),
+        Word("Walk","Stappen", 2,"English"),
+        Word("Charge","Opladen", 1,"English"),
+        Word("Write","Schrijven", 1,"English"),
+        Word("Eat","Eten", 1,"English"),
+        Word("Call","Bellen", 2,"English"),
+        Word("Listen","Luisteren", 1,"English"))
 
-    fun play() {
+    fun play(answer: String) {
+        val randomWords = words.shuffled().take(size).toMutableSet()
 
-        // Returns list only of matching language == language
-        val list = words.filter {
-            it.language == language
-        }
+        while (randomWords.isNotEmpty())  {
+            val selectedWord = randomWords.random()
+            println("The selected difficulty is " + selectedWord.difficulty)
+            println("")
+            println("Could you translate the following word: " + selectedWord.original)
+            println("")x
+            val answer = readLine()
 
-        // Randomly shuffles the order list and chooses 5 first words, convert number to Int number
-        val currentWords = list.shuffled().take(number.toInt()).toMutableSet()
-
-        // When a number of words is chosen program will start
-        while (currentWords.isNotEmpty()){
-            // Gets a random word
-            val selectedWord = currentWords.random()
-            println(
-                "Could you translate the following word for me?: "+
-                        selectedWord.original
-            )
-
-            // Waits for user response
-            val yourAnswer = readLine()
-
-            // If the user has a correct answer he gets a positive message back
-            if(selectedWord.translation.contains(yourAnswer.toString())){
-                println(
-                    "Great job you're amazing! Continue like that."
-                )
-                // remove the word of the list
-                currentWords.remove(selectedWord)
-            // User failed so he receives the answer
-            } else {
-                println(
-                    "Mission failed return to base, we'll have him later. The answer was " + selectedWord.translation
-                )
+            if(answer == selectedWord.translation)  {
+                randomWords.remove(selectedWord)
+                if (selectedWord.difficulty > 0) {
+                    selectedWord.difficulty--
+                } else {
+                    throw Exception("The difficulty is too low has to be 1 or 2")
+                }
+            }  else if (answer != selectedWord.translation) {
+                println("The correct answer was ${selectedWord.translation}")
             }
-            // Shows how many words are left to translate
-            println(currentWords.count())
+            println("Words left to translate: ${randomWords.count()}")
         }
-        println("You're done practising for today :)")
-      }
     }
-
+}
